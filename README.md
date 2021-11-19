@@ -46,12 +46,8 @@ To be added
 
 ## Built With
 
-
-
-
-- Ruby on Rails, Ruby
-
-
+- Ruby on Rails
+- PostgreSQL
 
 
 ## Getting Started
@@ -64,17 +60,15 @@ To get a local copy up and running follow these simple steps inside the root fol
 
 
 
-## Setup
+### Setup
+- Clone or download this repo on your machine
+- Enter project directory
+- Run `install bundle` to install dependencies
+- Run  `rake db:create` to create a database
 
---- to be added 
+### Test
 
-
-
-
-## Author
-
-
-
+Run `rspec` to run tests
 
 ## Author
 
