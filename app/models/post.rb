@@ -6,4 +6,8 @@ class Post < ApplicationRecord
   def update_post_counter
     user.update(posts_counter:Post.where(user_id:user).count)
   end
+
+  def last_comments
+    comments.last(5)
+  end
 end
