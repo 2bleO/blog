@@ -9,14 +9,12 @@
         <div>Likes: <%= post.likes_counter ? post.likes_counter : 0 %></div>
       </div>
 
-      <ul>
-        <% filtered_comments = comments.select{|a| a.post_id == post.id } %>
-        <% filtered_comments.each do |comment| %>
-              <li>
-                <%= comment.author.name %>
-                <%= comment.text %>
-              </li>
-            
+      <ul>  
+        <% comments.each do |comment| %>
+          <li>
+            <%= comment.author.name %>
+            <%= comment.text %>
+          </li>            
         <% end %>
       </ul>
   </div>

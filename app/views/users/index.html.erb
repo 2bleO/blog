@@ -1,7 +1,4 @@
 <%= render partial: 'shared/header' %>
 <ul>
-  <% @users.each do |user| %>
-     <%= render partial: 'user', locals: {user: user} %>
-   
-  <% end %>
+  <%= render @users %>
 </ul>
