@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 2021_11_26_023149) do
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "text"
-    t.integer "comments_counter"
-    t.integer "likes_counter"
+    t.integer "comments_counter", default: 0
+    t.integer "likes_counter", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "author_id", null: false
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2021_11_26_023149) do
     t.string "name"
     t.string "photo", default: "https://images.pexels.com/photos/247791/pexels-photo-247791.png?auto=compress&cs=tinysrgb&dpr=1&w=500"
     t.text "bio"
-    t.integer "posts_counter"
+    t.integer "posts_counter", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

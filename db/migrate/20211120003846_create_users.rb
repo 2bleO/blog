@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :photo, default: 'https://images.pexels.com/photos/247791/pexels-photo-247791.png?auto=compress&cs=tinysrgb&dpr=1&w=500'
       t.text :bio
-      t.integer :posts_counter
+      t.integer :posts_counter, default: 0
 
       t.timestamps
     end
