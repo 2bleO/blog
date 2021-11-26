@@ -1,2 +1,17 @@
-<h1>Users#show</h1>
-<p>Details of user</p>
+<%= render partial: 'shared/header' %>
+<%= render partial: 'user', locals: {user: @user} %>
+<div>
+<h2>Bio</h2>
+<p>
+  <%= @user.bio %>
+</p>
+</div>
+
+
+<ul>
+  <% @user_posts.each do |post| %>
+    <%= render partial:'posts/post', locals:{post: post, users: @users, comments: @comments}%>
+  <% end %>
+</ul>
+
+<%= link_to "See all post", user_posts_path(@user.id) %>
