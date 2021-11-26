@@ -1,9 +1,9 @@
-<article>
-    <img src="<%= user.photo %>">
-    <div>
+<article class="d-flex my-4 ">
+    <img class="w-25" src="<%= user.photo %>">
+    <div class="ms-3 border border-dark w-100">
       <%= link_to user_path(user.id) do %>
-        <span><%= user.name %></span>
+        <span class="fs-1"><%= user.name %></span>
       <% end %>
-      <div>Number of posts: <%= user.posts_counter %></div>
+      <div class="d-flex w-75 justify-content-end fs-4">Number of posts: <%= user.posts_counter %></div>
     </div>
 </article>

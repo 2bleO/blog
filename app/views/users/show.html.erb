@@ -1,17 +1,17 @@
 <%= render partial: 'shared/header' %>
 <%= render partial: 'user', locals: {user: @user} %>
-<div>
-<h2>Bio</h2>
+<div class="border border-dark">
+<h2 class="fs-4">Bio</h2>
 <p>
   <%= @user.bio %>
 </p>
 </div>
 
 
-<ul>
+<div>
   <% @user_posts.each do |post| %>
     <%= render partial:'posts/post', locals:{post: post, users: @users, comments: @comments}%>
   <% end %>
-</ul>
+</div>
 
 <%= link_to "See all post", user_posts_path(@user.id) %>
