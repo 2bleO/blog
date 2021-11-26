@@ -1,0 +1,9 @@
+<%= render partial: 'shared/header' %>
+<h1>New comment</h1>
+<%= form_with model: Comment.new, :url => {:action => :create, :controller => :comments} do |form| %>
+  <div>
+    <%= form.label :comments %>
+    <%= form.text_area :text %>
+  </div>
+  <%= form.submit "Save comment", class:"btn" %>
+  <% end %> 

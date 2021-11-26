@@ -11,6 +11,7 @@
     <%= @post.text %>
   </p>
 </div>
+<%= link_to 'Add comment', user_post_path(params[:user_id], params[:id])+'/comments/new' %>
 <ul class="border border-dark my-2">
   <% @comments.each do |comment| %>
     <li>
