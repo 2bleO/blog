@@ -1,0 +1,14 @@
+<%= render partial: 'shared/header' %>
+<h1>New post</h1>
+<%= form_with model: Post.new, :url => {:action => :create, :controller => :posts} do |form| %>
+  <div class="w-100">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: "w-100" %>
+  </div>
+  <div class="w-100">
+    <%= form.label :text %>
+    <%= form.text_area :text, class: "w-100" %>
+  </div>
+
+  <%= form.submit "Save post" %>
+  <% end %>
