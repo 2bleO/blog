@@ -1,2 +1,22 @@
-<h1>Posts#show</h1>
-<p>Posts index for user</p>
+<%= render partial: 'shared/header' %>
+<div>
+  <h2><%= @post.title %></h2>
+  by<span><%= @user.name %> </span>
+  <div>
+    Comments: <%= @comments.count %>
+    Likes: <%= @likes.count %>
+  </div>
+</div>
+ <p>
+  <%= @post.text %>
+</p>
+
+<ul>
+  <% @comments.each do |comment| %>
+    <li>
+      <%= comment.author.name %>:
+      <%= comment.text %>
+    </li>
+
+  <% end %>
+</ul>
