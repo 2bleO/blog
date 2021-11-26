@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'users#index'
+  root 'users#index', as: 'home'
 
   resources :users, only: %i[index show] do
     resources :posts, only: %i[index show]
