@@ -2,8 +2,8 @@
 <h1>New comment</h1>
 <%= form_with model: Comment.new, :url => {:action => :create, :controller => :comments} do |form| %>
   <div>
-    <%= form.label :comments %>
-    <%= form.text_area :text %>
+    <%= form.label :comment %>
+    <%= form.text_area :text, class: "w-100" %>
   </div>
-  <%= form.submit "Save comment", class:"btn" %>
+  <%= form.submit "Save comment" %>
   <% end %> 
