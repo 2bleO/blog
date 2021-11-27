@@ -1,39 +1,48 @@
 require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
-  describe 'GET #index' do
-    before(:each) do
-      get user_posts_path(745)
-    end
+  describe 'GET /index' do
+    Post.create(title: 'Post title', text: 'This is a Test', author: User.first)
+    before(:example) { get user_posts_path(1) }
 
-    it 'should have the correct response status' do
+    it 'should have correct response status' do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'displays the correct template' do
+    it 'should render correct template' do
       expect(response).to render_template(:index)
     end
 
-    it 'has the correct placeholder text' do
-      expect(response.body).to include('List of posts for a given user')
+    it 'should include correct placeholder text' do
+      expect(response.body).to include('This is a Test')
     end
   end
 
   describe 'GET #show' do
-    before(:each) do
-      get user_post_path(745, 3)
-    end
+    before(:example) { get user_post_path(1, 1) }
 
-    it 'should have the correct response status' do
+    it 'should have correct response status' do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'displays the correct template' do
+    it 'should render correct template' do
       expect(response).to render_template(:show)
     end
 
-    it 'displays the correct placeholder text' do
-      expect(response.body).to include('Posts index for user')
+    it 'should include correct placeholder text' do
+      expect(response.body).to include('This is a Test')
+    end
+  end
+
+  describe 'last_comments method' do
+    it 'Should return 5 recently added comments' do
+      @user = User.first
+      @post = Post.last
+
+      10.times do |i|
+        Comment.create(text: "comment ##{i}", author: @user, post: @post)
+      end
+      expect(@post.last_comments.count).to eql(5)
     end
   end
 end
