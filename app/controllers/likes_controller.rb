@@ -7,7 +7,7 @@ class LikesController < ApplicationController
     @like = Like.new(like_params)
     @like.author = current_user
     if @like.save
-      redirect_back(fallback_location: user_post_path(@like.author_id, @like.post_id))
+      redirect_back(fallback_location: user_post_path(@like.author_id, @like.post_id), notice: 'You liked this post.')
     else
       :new
     end
