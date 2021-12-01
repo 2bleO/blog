@@ -12,14 +12,15 @@
   </head>
 
   <body>
-  <% if flash %>
-    <p ><%= notice %></p>
-    <% end %>
+  <% if notice %>
+    <p class="alert alert-primary"><%= notice %></p>
+  <% end %>
     <% if alert %>
-      <p><%= alert %></p>
+      <p class="alert"><%= alert %></p>
     <% end %>
 
     <div class="container">
+      <%= render partial: 'shared/header' %>
       <%= yield %>
     </div>
   </body>
