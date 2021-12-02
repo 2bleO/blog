@@ -1,4 +1,3 @@
-<%= render partial: 'shared/header' %>
 <h1>New comment</h1>
 <%= form_with model: Comment.new, :url => {:action => :create, :controller => :comments} do |form| %>
   <div>
