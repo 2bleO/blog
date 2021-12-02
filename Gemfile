@@ -32,6 +32,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 # devise
 gem 'devise'
 
+# cancancan authorization
+gem 'cancancan'
+
 group :development, :test do
   # Add rspec-rails
   gem 'rspec-rails', '~> 5.0.0'
