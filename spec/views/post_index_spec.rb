@@ -8,7 +8,7 @@ RSpec.describe 'Post view', type: :feature do
       User.create(name: 'TestUser', email: 'test@user.com', password: 'testu1', password_confirmation: 'testu1',
                   confirmed_at: Date.today)
       User.create(name: 'TestUser2', email: 'test@user2.com', password: 'testu2', password_confirmation: 'testu2',
-                  bio: 'Hello Im User2.',confirmed_at: Date.today)
+                  bio: 'Hello Im User2.', confirmed_at: Date.today)
 
       5.times do |j|
         post = Post.create(title: "Post ##{j + 1}", text: "This is post #{j + 1}", author: User.second)
