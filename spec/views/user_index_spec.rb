@@ -1,8 +1,12 @@
 require 'rails_helper'
+require 'database_cleaner/active_record'
+
+DatabaseCleaner.strategy = :truncation
 
 RSpec.describe 'the signin process', type: :feature do
   describe 'login page' do
     before do
+      DatabaseCleaner.clean
       visit home_path
       User.create(name: 'TestUser', email: 'test@user.com', password: 'testu1', password_confirmation: 'testu1',
                   confirmed_at: Date.today)
@@ -41,6 +45,7 @@ end
 RSpec.describe 'list of users in', type: :feature do
   describe 'user index page:' do
     before do
+      DatabaseCleaner.clean
       visit home_path
       User.create(name: 'TestUser', email: 'test@user.com', password: 'testu1', password_confirmation: 'testu1',
                   posts_counter: 3, confirmed_at: Date.today)

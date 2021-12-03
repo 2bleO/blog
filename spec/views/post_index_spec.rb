@@ -1,9 +1,13 @@
 require 'rails_helper'
+require 'database_cleaner/active_record'
+
+DatabaseCleaner.strategy = :truncation
 
 RSpec.describe 'Post view', type: :feature do
   include Devise::Test::IntegrationHelpers
   describe 'Post index' do
     before do
+      DatabaseCleaner.clean
       visit new_user_session_path
       User.create(name: 'TestUser', email: 'test@user.com', password: 'testu1', password_confirmation: 'testu1',
                   confirmed_at: Date.today)
