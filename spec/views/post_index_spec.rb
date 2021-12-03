@@ -59,6 +59,10 @@ RSpec.describe 'Post view', type: :feature do
       expect(page).to have_selector 'button', text: 'Pagination'
     end
 
+    it 'I can see the user\'s profile picture.' do
+      expect(page).to have_css('img.users-image')
+    end
+
     it "should redirected to that user's show page, when click on a user" do
       click_link 'Post #1'
       expect(page).to have_current_path(user_post_path(User.second.id, User.second.posts.first.id))
