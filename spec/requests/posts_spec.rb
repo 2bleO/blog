@@ -7,7 +7,7 @@ RSpec.describe 'Posts', type: :request do
   describe 'GET /index' do
     DatabaseCleaner.clean
     User.create(name: 'TestUser', email: 'test@user.com', password: 'testu1', password_confirmation: 'testu1',
-                  confirmed_at: Date.today)
+                confirmed_at: Date.today)
     Post.create(title: 'Post title', text: 'This is a Test', author: User.first)
     before(:example) { get user_posts_path(1) }
 

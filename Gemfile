@@ -37,8 +37,8 @@ gem 'cancancan'
 
 group :development, :test do
   # Add rspec-rails
+  gem 'database_cleaner'
   gem 'rspec-rails', '~> 5.0.0'
-  gem "database_cleaner"
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end

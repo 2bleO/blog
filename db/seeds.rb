@@ -10,11 +10,12 @@ user_qty = random.rand(2..5)
 
 user_qty.times do |i|
   user = User.create(name: "TestUser#{i + 1}", bio: "Hello Im User#{i + 1}.",
-  email:"test@user#{i+1}.com", password:"testu#{i+1}",
-  password_confirmation:"testu#{i+1}", confirmed_at:Date.today)
+                     email: "test@user#{i + 1}.com", password: "testu#{i + 1}",
+                     password_confirmation: "testu#{i + 1}", confirmed_at: Date.today)
 
   post_qty = random.rand(3..5)
   post_qty.times do |j|
-    post = Post.create(title: "Post ##{j + 1} of #{user.name}", text: "This is post #{j + 1} of #{user.name}", author: user)
+    Post.create(title: "Post ##{j + 1} of #{user.name}", text: "This is post #{j + 1} of #{user.name}",
+                author: user)
   end
 end
