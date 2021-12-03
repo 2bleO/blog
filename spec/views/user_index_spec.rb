@@ -42,7 +42,8 @@ RSpec.describe 'list of users in', type: :feature do
   describe 'user index page:' do
     before do
       visit home_path
-      User.create(name: 'TestUser', email: 'test@user.com', password: 'testu1', password_confirmation: 'testu1', posts_counter: 3, confirmed_at: Date.today)
+      User.create(name: 'TestUser', email: 'test@user.com', password: 'testu1', password_confirmation: 'testu1',
+                  posts_counter: 3, confirmed_at: Date.today)
       User.create(name: 'TestUser2', email: 'test@user2.com', password: 'testu2', password_confirmation: 'testu2',
                   confirmed_at: Date.today)
       fill_in 'Email', with: 'test@user.com'

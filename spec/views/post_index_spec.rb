@@ -5,9 +5,10 @@ RSpec.describe 'Post view', type: :feature do
   describe 'Post index' do
     before do
       visit new_user_session_path
-      User.create(name: 'TestUser', email: 'test@user.com', password: 'testu1', password_confirmation: 'testu1', confirmed_at: Date.today)
-      User.create(name: 'TestUser2', email: 'test@user2.com', password: 'testu2', password_confirmation: 'testu2', bio: 'Hello Im User2.',
+      User.create(name: 'TestUser', email: 'test@user.com', password: 'testu1', password_confirmation: 'testu1',
                   confirmed_at: Date.today)
+      User.create(name: 'TestUser2', email: 'test@user2.com', password: 'testu2', password_confirmation: 'testu2',
+                  bio: 'Hello Im User2.',confirmed_at: Date.today)
 
       5.times do |j|
         post = Post.create(title: "Post ##{j + 1}", text: "This is post #{j + 1}", author: User.second)
@@ -43,11 +44,11 @@ RSpec.describe 'Post view', type: :feature do
     end
 
     it 'display how many comments a post has.' do
-      expect(page).to have_content("Comments: 2")
+      expect(page).to have_content('Comments: 2')
     end
 
     it 'display how many likes a post has.' do
-      expect(page).to have_content("Likes: 0")
+      expect(page).to have_content('Likes: 0')
     end
 
     it 'display pagination button.' do

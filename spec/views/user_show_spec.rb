@@ -5,9 +5,10 @@ RSpec.describe 'User view', type: :feature do
   describe 'User show page' do
     before do
       visit home_path
-      User.create(name: 'TestUser', email: 'test@user.com', password: 'testu1', password_confirmation: 'testu1', confirmed_at: Date.today)
-      User.create(name: 'TestUser2', email: 'test@user2.com', password: 'testu2', password_confirmation: 'testu2', posts_counter: 3, bio: 'Hello Im User2.',
+      User.create(name: 'TestUser', email: 'test@user.com', password: 'testu1', password_confirmation: 'testu1',
                   confirmed_at: Date.today)
+      User.create(name: 'TestUser2', email: 'test@user2.com', password: 'testu2', password_confirmation: 'testu2',
+                  posts_counter: 3, bio: 'Hello Im User2.', confirmed_at: Date.today)
       fill_in 'Email', with: 'test@user.com'
       fill_in 'Password', with: 'testu1'
       click_button 'Log in'
