@@ -13,7 +13,7 @@ RSpec.describe 'User view', type: :feature do
       User.create(name: 'TestUser2', email: 'test@user2.com', password: 'testu2', password_confirmation: 'testu2',
                   bio: 'Hello Im User2.', confirmed_at: Date.today)
       3.times do |j|
-        Post.create(title: "Post ##{j + 1} of TestUser2", text: "This is Post#{j + 1} by TestUser2", author: User.second)
+        Post.create(title: "Post ##{j + 1}", text: "This is Post#{j + 1} by TestUser2", author: User.second)
       end
 
       fill_in 'Email', with: 'test@user1.com'
@@ -46,6 +46,12 @@ RSpec.describe 'User view', type: :feature do
       expect(page).to have_content('This is Post1 by TestUser2')
       expect(page).to have_content('This is Post2 by TestUser2')
       expect(page).to have_content('This is Post3 by TestUser2')
+    end
+
+    it 'When I click a user\'s post, it redirects me to that post\'s show page.' do
+      click_link 'Post #1'
+      expect(page).to have_content('Post #1 by TestUser2')
+      expect(page).to have_content('This is Post1 by TestUser2')
     end
 
     it "should redirects me to the user's post's index page, when click on a see all posts button" do
