@@ -65,6 +65,11 @@ RSpec.describe 'list of users in', type: :feature do
       expect(page).to have_content('Number of posts: 3')
     end
 
+    it 'I can see the profile picture for each user' do
+      expect(page).to have_selector('img.users-image')
+      expect(page).to have_selector('img.users-image', between: 1..10)
+    end
+
     it 'When I click on a user, I am redirected to that user\'s show page' do
       click_link 'TestUser'
       expect(page).to have_current_path(page.find_link('TestUser')[:href])
